@@ -35,7 +35,7 @@ func _process(delta):
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 	if direction:
-		anim.play("Snail_WalkCycle")
+		anim.play("Snail_WalkCycle", -1, game.speed)
 		velocity.x = direction.x * SPEED * game.speed
 		velocity.z = direction.z * SPEED * game.speed
 		model.rotation.y = -input_dir.angle() - PI/2

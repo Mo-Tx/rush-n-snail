@@ -13,4 +13,3 @@ var speed := 1
 func _process(delta): 
 	player.time
 	ui.time = player.time
-	
