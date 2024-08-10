@@ -3,7 +3,7 @@ class_name Ui extends Control
 var game : Game
 var t_label : Label
 
-var time : int
+var time : String
 
 func _ready(): 
 	game = get_tree().current_scene

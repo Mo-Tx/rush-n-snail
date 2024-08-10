@@ -1,7 +1,8 @@
 class_name Game extends Node
 
-var SETTINGS := {
-	"GRAVITY" : ProjectSettings.get_setting("physics/3d/default_gravity")
+@export var SETTINGS := {
+	"GRAVITY" : ProjectSettings.get_setting("physics/3d/default_gravity"),
+	"SPEED_MULTIPLIER" : 2.0
 }
 
 var player : Player

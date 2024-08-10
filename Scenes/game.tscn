@@ -1,36 +1,26 @@
-[gd_scene load_steps=14 format=3 uid="uid://d08ap3xs800m"]
+[gd_scene load_steps=12 format=3 uid="uid://d08ap3xs800m"]
 
 [ext_resource type="PackedScene" uid="uid://cl6i1ivtrop84" path="res://Scenes/player.tscn" id="1_q0wt0"]
 [ext_resource type="Script" path="res://Scenes/GameManagerScript.gd" id="1_w3sbi"]
 [ext_resource type="PackedScene" uid="uid://n17fptop6dq5" path="res://Scenes/ground_template.tscn" id="2_lmrhr"]
-[ext_resource type="Script" path="res://Scripts/CoinScript.gd" id="3_8scsd"]
+[ext_resource type="Script" path="res://Scripts/CollectableScript.gd" id="3_8scsd"]
+[ext_resource type="PackedScene" uid="uid://dw7wkts16fuo1" path="res://Models/SpeedKey.gltf" id="5_c5rfa"]
+[ext_resource type="Script" path="res://Scenes/CameraScript.gd" id="5_eln8l"]
 [ext_resource type="Script" path="res://Scenes/UI_Script.gd" id="5_kyrfc"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x4ige"]
-
-[sub_resource type="Sky" id="Sky_3pio3"]
-sky_material = SubResource("ProceduralSkyMaterial_x4ige")
 
 [sub_resource type="Environment" id="Environment_62xan"]
 background_mode = 2
-background_energy_multiplier = 2.0
-sky = SubResource("Sky_3pio3")
+background_color = Color(1, 1, 1, 1)
+ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 4.0
 reflected_light_source = 2
 glow_enabled = true
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_8enkw"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4u76c"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_gb460"]
-material = SubResource("StandardMaterial3D_4u76c")
-radius = 0.25
-height = 0.5
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_68diw"]
-size = Vector3(0.5, 0.5, 0.5)
+size = Vector3(0.300842, 0.691406, 0.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qk42q"]
 font_size = 64
@@ -48,15 +38,22 @@ camera_attributes = SubResource("CameraAttributesPhysical_8enkw")
 
 [node name="GroundTemplate" parent="World/Level" instance=ExtResource("2_lmrhr")]
 
-[node name="Coin" type="Area3D" parent="World/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58721, 2.88713)
+[node name="Key" type="Area3D" parent="World/Level"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.5, 3)
 script = ExtResource("3_8scsd")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Level/Coin"]
-mesh = SubResource("SphereMesh_gb460")
+[node name="Model" parent="World/Level/Key" instance=ExtResource("5_c5rfa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.441529, -0.0005548)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Level/Coin"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Level/Key"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00595093, 0.0957031, 0)
 shape = SubResource("BoxShape3D_68diw")
+
+[node name="Camera" type="Camera3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 5.5)
+keep_aspect = 0
+current = true
+script = ExtResource("5_eln8l")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -87,4 +84,4 @@ grow_horizontal = 2
 text = "XX"
 label_settings = SubResource("LabelSettings_qk42q")
 
-[connection signal="body_entered" from="World/Level/Coin" to="World/Level/Coin" method="_on_body_entered"]
+[connection signal="body_entered" from="World/Level/Key" to="World/Level/Key" method="_on_body_entered"]

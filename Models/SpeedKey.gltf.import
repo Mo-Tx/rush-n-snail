@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/SpeedKey.gltf-065b98f8bede525fa4f2f2c3bea6bd4
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
+nodes/root_name="Model"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
