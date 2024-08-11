@@ -1,13 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7ojavp454twh"]
+[gd_scene load_steps=2 format=3 uid="uid://b7ojavp454twh"]
 
-[sub_resource type="Gradient" id="Gradient_bgnrh"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4jx1i"]
-gradient = SubResource("Gradient_bgnrh")
-height = 150
-fill_from = Vector2(1, 1)
-fill_to = Vector2(1, 1)
+[ext_resource type="Texture2D" uid="uid://bk8eiiurh63rr" path="res://Textures/SpeedKeyHud.png" id="1_d76vy"]
 
 [node name="Key" type="TextureRect"]
-texture = SubResource("GradientTexture2D_4jx1i")
-stretch_mode = 6
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+texture = ExtResource("1_d76vy")
+stretch_mode = 5

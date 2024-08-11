@@ -19,3 +19,4 @@ func _process(delta):
 	player.time
 	ui.time = player.time
 	ui.key_count = int(speed-1)
+	$UI/HUD/VBoxContainer/Timer/AnimatedSprite2D.speed_scale = int(speed)
