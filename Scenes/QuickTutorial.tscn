@@ -1,0 +1,175 @@
+[gd_scene load_steps=14 format=3 uid="uid://bxblfvoo2mj8e"]
+
+[ext_resource type="FontFile" uid="uid://bp8pue2tu0c4s" path="res://Fonts/CHERI___.TTF" id="1_5j7co"]
+[ext_resource type="Texture2D" uid="uid://nesh1mlgba8i" path="res://Textures/FruitHUD.png" id="2_2ddin"]
+[ext_resource type="Script" path="res://Scripts/QuickTutorial.gd" id="2_3j3rq"]
+[ext_resource type="Texture2D" uid="uid://bk8eiiurh63rr" path="res://Textures/SpeedKeyHud.png" id="3_b2i2m"]
+[ext_resource type="Texture2D" uid="uid://cdyon8aylp5oj" path="res://Textures/GameTitleHUD.png" id="4_6erw0"]
+[ext_resource type="Texture2D" uid="uid://db5hm84igum5w" path="res://Textures/PadlockHUD.png" id="4_w5j2y"]
+[ext_resource type="Texture2D" uid="uid://b85otftu5amut" path="res://Textures/ButtonHUD.png" id="6_xvfww"]
+
+[sub_resource type="Theme" id="Theme_lm3r5"]
+default_font = ExtResource("1_5j7co")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wg4ec"]
+texture = ExtResource("4_6erw0")
+expand_margin_top = 40.0
+expand_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4846"]
+texture = ExtResource("4_6erw0")
+expand_margin_top = 40.0
+expand_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mnkl5"]
+resource_local_to_scene = true
+texture = ExtResource("6_xvfww")
+expand_margin_left = 70.0
+expand_margin_top = 40.0
+expand_margin_right = 70.0
+expand_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nfq3t"]
+texture = ExtResource("6_xvfww")
+expand_margin_left = 70.0
+expand_margin_top = 40.0
+expand_margin_right = 70.0
+expand_margin_bottom = 40.0
+modulate_color = Color(0.730216, 0.730216, 0.730216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3o8hv"]
+texture = ExtResource("6_xvfww")
+expand_margin_left = 65.0
+expand_margin_top = 35.0
+expand_margin_right = 65.0
+expand_margin_bottom = 35.0
+modulate_color = Color(0.466181, 0.466181, 0.466181, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_lm3r5")
+script = ExtResource("2_3j3rq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 114.72)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 25
+text = "A quick tutorial..."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_2ddin")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_wg4ec")
+text = "Get the higher amount
+of fruits you can"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+texture = ExtResource("3_b2i2m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_s4846")
+text = "The key makes you and
+the world faster"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("4_w5j2y")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_wg4ec")
+text = "The padlocks decrease the
+amount of keys you
+have"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Press Start" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_mnkl5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nfq3t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3o8hv")
+text = "Press Start"
+icon_alignment = 1
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Press Start" to="." method="_on_press_start_button_down"]
