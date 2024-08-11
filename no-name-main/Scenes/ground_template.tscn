@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://n17fptop6dq5"]
+
+[ext_resource type="Texture2D" uid="uid://3crn6tcd7r7r" path="res://Textures/GrassWithWaterGround.png" id="1_wc6es"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eovbb"]
+albedo_color = Color(0.513233, 0.513233, 0.513233, 1)
+albedo_texture = ExtResource("1_wc6es")
+uv1_scale = Vector3(4.655, 4.655, 4.655)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_je3sh"]
+material = SubResource("StandardMaterial3D_eovbb")
+size = Vector2(1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkr81"]
+size = Vector3(25, 0, 25)
+
+[node name="GroundTemplate" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, 0, 0, 0)
+mesh = SubResource("PlaneMesh_je3sh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qkr81")

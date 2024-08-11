@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csbe2wg0d0eni"]
+
+[ext_resource type="Script" path="res://Scripts/CollectableScript.gd" id="1_uceix"]
+[ext_resource type="PackedScene" uid="uid://dw7wkts16fuo1" path="res://Models/SpeedKey.gltf" id="2_0cnw2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68diw"]
+size = Vector3(0.300842, 0.691406, 0.5)
+
+[node name="Key" type="Area3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("1_uceix")
+
+[node name="Model" parent="." instance=ExtResource("2_0cnw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.441529, -0.0005548)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00595093, 0.0957031, 0)
+shape = SubResource("BoxShape3D_68diw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

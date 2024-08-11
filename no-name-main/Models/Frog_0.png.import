@@ -2,20 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3crn6tcd7r7r"
-path="res://.godot/imported/GrassWithWaterGround.png-532d59e5a4085a5242646d7b56afcdbc.ctex"
+uid="uid://bo41w6mnmc657"
+path.s3tc="res://.godot/imported/Frog_0.png-e39524467fa020bb868cc0bdee7322f7.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "dd80ae54078355f46ea452c0217c7e52"
 }
 
 [deps]
 
-source_file="res://Textures/GrassWithWaterGround.png"
-dest_files=["res://.godot/imported/GrassWithWaterGround.png-532d59e5a4085a5242646d7b56afcdbc.ctex"]
+source_file="res://Models/Frog_0.png"
+dest_files=["res://.godot/imported/Frog_0.png-e39524467fa020bb868cc0bdee7322f7.s3tc.ctex"]
 
 [params]
 
-compress/mode=4
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -25,7 +29,7 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

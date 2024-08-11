@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7ojavp454twh"]
+
+[sub_resource type="Gradient" id="Gradient_bgnrh"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4jx1i"]
+gradient = SubResource("Gradient_bgnrh")
+height = 150
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 1)
+
+[node name="Key" type="TextureRect"]
+texture = SubResource("GradientTexture2D_4jx1i")
+stretch_mode = 6

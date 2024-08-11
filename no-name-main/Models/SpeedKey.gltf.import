@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://mfu7vimqwcbq"
-path="res://.godot/imported/Frog.gltf-ea0ea0e93f15938aa20621870e87726f.scn"
+uid="uid://dw7wkts16fuo1"
+path="res://.godot/imported/SpeedKey.gltf-065b98f8bede525fa4f2f2c3bea6bd44.scn"
 
 [deps]
 
-source_file="res://Models/Frog.gltf"
-dest_files=["res://.godot/imported/Frog.gltf-ea0ea0e93f15938aa20621870e87726f.scn"]
+source_file="res://Models/SpeedKey.gltf"
+dest_files=["res://.godot/imported/SpeedKey.gltf-065b98f8bede525fa4f2f2c3bea6bd44.scn"]
 
 [params]
 
@@ -20,15 +20,15 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=3
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
-animation/fps=60.0
+animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={}
 gltf/naming_version=1
-gltf/embedded_image_handling=2
+gltf/embedded_image_handling=1

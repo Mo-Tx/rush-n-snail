@@ -5,17 +5,11 @@ class_name Game extends Node
 	"SPEED_MULTIPLIER" : 2.0
 }
 
-enum COLLECTABLES {KEY, LOCK}
-
-var level : Node3D
 var player : Player
 var ui : Ui
 
 var speed := 1
 
-func _ready(): level = $World/Level
-
 func _process(delta): 
 	player.time
 	ui.time = player.time
-	ui.key_count = int(speed-1)

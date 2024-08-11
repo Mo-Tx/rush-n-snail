@@ -2,20 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3crn6tcd7r7r"
-path="res://.godot/imported/GrassWithWaterGround.png-532d59e5a4085a5242646d7b56afcdbc.ctex"
+uid="uid://cdmg4uk1it544"
+path.s3tc="res://.godot/imported/TimerBoost_0.png-1d37e7f1afad6237f787b95c373f5f58.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "088c922bcb1d5c6ab58c4fb8d8272cfa"
 }
 
 [deps]
 
-source_file="res://Textures/GrassWithWaterGround.png"
-dest_files=["res://.godot/imported/GrassWithWaterGround.png-532d59e5a4085a5242646d7b56afcdbc.ctex"]
+source_file="res://Models/TimerBoost_0.png"
+dest_files=["res://.godot/imported/TimerBoost_0.png-1d37e7f1afad6237f787b95c373f5f58.s3tc.ctex"]
 
 [params]
 
-compress/mode=4
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -25,7 +29,7 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

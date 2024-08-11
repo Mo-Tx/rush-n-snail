@@ -40,14 +40,10 @@ func _process(delta):
 		velocity.z = direction.z * SPEED * game.speed
 		model.rotation.y = -input_dir.angle() - PI/2
 	else:
-		anim.play("Snail_Idle", -1, game.speed)
+		anim.play("Snail_Idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED * game.speed)
 		velocity.z = move_toward(velocity.z, 0, SPEED * game.speed)
 	
 	move_and_slide()
 	
-func collect(type): 
-	match type:
-		Game.COLLECTABLES.KEY: game.speed += 1
-		Game.COLLECTABLES.LOCK: game.speed -= 4.5
-	game.speed = clampf(game.speed, 1, 11)
+func collect(): game.speed += 1

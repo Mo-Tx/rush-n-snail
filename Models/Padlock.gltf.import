@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/Padlock.gltf-e8fface5b994820880b984f9ce0b947e
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
+nodes/root_name="Model"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true

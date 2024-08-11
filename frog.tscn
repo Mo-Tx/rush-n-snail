@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0bkklgb4tte4"]
+
+[ext_resource type="Script" path="res://FrogScript.gd" id="1_uxbtq"]
+[ext_resource type="PackedScene" uid="uid://mfu7vimqwcbq" path="res://Models/Frog.gltf" id="2_nyvb0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6v2u"]
+size = Vector3(1, 0.432617, 1)
+
+[node name="Frog" type="Area3D"]
+script = ExtResource("1_uxbtq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.190918, 0)
+shape = SubResource("BoxShape3D_g6v2u")
+
+[node name="Model" parent="." instance=ExtResource("2_nyvb0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="SpitTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="SpitTimer" to="." method="_on_spit_timer_timeout"]
