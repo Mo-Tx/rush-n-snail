@@ -43,7 +43,6 @@ fov = 90.0
 script = ExtResource("5_eln8l")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Camera"]
-visible = false
 mesh = SubResource("QuadMesh_d2ta4")
 
 [node name="UI" type="Control" parent="."]
