@@ -9,7 +9,7 @@ size = Vector3(0.739288, 0.963409, 0.238831)
 [node name="Lock" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_g5dld")
-type = 1
+TYPE = 1
 
 [node name="Model" parent="." instance=ExtResource("2_ghtl6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)

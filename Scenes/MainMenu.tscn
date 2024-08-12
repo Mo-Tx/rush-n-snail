@@ -53,6 +53,7 @@ script = ExtResource("2_d3g83")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.590176, 0.592705, 0.281105, 1)
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,6 +65,7 @@ texture = ExtResource("2_otduf")
 stretch_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

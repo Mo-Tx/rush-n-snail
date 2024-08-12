@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://524nmdqi867"]
+
+[ext_resource type="PackedScene" uid="uid://cl6i1ivtrop84" path="res://Scenes/player.tscn" id="1_dnban"]
+[ext_resource type="PackedScene" uid="uid://n17fptop6dq5" path="res://Scenes/ground.tscn" id="2_gxhcv"]
+[ext_resource type="PackedScene" uid="uid://d0bkklgb4tte4" path="res://Scenes/frog.tscn" id="3_35f7f"]
+
+[node name="Level" type="Node3D"]
+
+[node name="Ground" parent="." instance=ExtResource("2_gxhcv")]
+
+[node name="Player" parent="." instance=ExtResource("1_dnban")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Frog" parent="." instance=ExtResource("3_35f7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.19417, 0, 0)
+
+[node name="Frog2" parent="." instance=ExtResource("3_35f7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.695, 0, -13.221)
+
+[node name="Frog3" parent="." instance=ExtResource("3_35f7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.76, 0, 23.353)

@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://vgfm11c3ggid"]
+
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_rcya5"]
+[ext_resource type="Texture2D" uid="uid://3crn6tcd7r7r" path="res://Textures/GrassWithWaterGround.png" id="2_gyea8"]
+[ext_resource type="Texture2D" uid="uid://cdyon8aylp5oj" path="res://Textures/GameTitleHUD.png" id="3_4wdfq"]
+[ext_resource type="Texture2D" uid="uid://b85otftu5amut" path="res://Textures/ButtonHUD.png" id="4_i2mhx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gjtgp"]
+texture = ExtResource("3_4wdfq")
+expand_margin_left = 120.0
+expand_margin_top = 80.0
+expand_margin_right = 120.0
+expand_margin_bottom = 80.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6q0k"]
+resource_local_to_scene = true
+texture = ExtResource("4_i2mhx")
+expand_margin_left = 100.0
+expand_margin_top = 60.0
+expand_margin_right = 100.0
+expand_margin_bottom = 60.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2nbha"]
+texture = ExtResource("4_i2mhx")
+expand_margin_left = 100.0
+expand_margin_top = 60.0
+expand_margin_right = 100.0
+expand_margin_bottom = 60.0
+modulate_color = Color(0.730216, 0.730216, 0.730216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rx4mk"]
+texture = ExtResource("4_i2mhx")
+expand_margin_left = 90.0
+expand_margin_top = 50.0
+expand_margin_right = 90.0
+expand_margin_bottom = 50.0
+modulate_color = Color(0.466181, 0.466181, 0.466181, 1)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rcya5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.590176, 0.592705, 0.281105, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+texture = ExtResource("2_gyea8")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 171.04)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxTexture_gjtgp")
+text = "You've ran out of time"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110.64)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxTexture_gjtgp")
+text = "Score : xx"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110.64)
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_m6q0k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2nbha")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rx4mk")
+text = "Restart"
+icon_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

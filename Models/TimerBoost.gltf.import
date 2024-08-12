@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/TimerBoost.gltf-a694c5eef9b24f42c9b67d3dc18bb
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
+nodes/root_name="Model"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
@@ -31,4 +31,4 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={}
 gltf/naming_version=1
-gltf/embedded_image_handling=1
+gltf/embedded_image_handling=2

@@ -10,10 +10,21 @@ config_version=5
 
 [application]
 
-config/name="Game Jam 3D game with no name for now lol"
+config/name="Rush N' Snail"
 run/main_scene="res://Scenes/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Textures/icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[importer_defaults]
+
+animation_library={
+"gltf/embedded_image_handling": 2
+}
 
 [input]
 
@@ -42,3 +53,10 @@ RIGHT={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[shader_globals]
+
+game_speed={
+"type": "float",
+"value": 1.0
+}

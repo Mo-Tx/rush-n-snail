@@ -1,31 +1,73 @@
-[gd_scene load_steps=5 format=3 uid="uid://n17fptop6dq5"]
+[gd_scene load_steps=14 format=3 uid="uid://n17fptop6dq5"]
 
-[ext_resource type="Texture2D" uid="uid://3crn6tcd7r7r" path="res://Textures/GrassWithWaterGround.png" id="1_xeo4g"]
+[ext_resource type="Texture2D" uid="uid://3crn6tcd7r7r" path="res://Textures/GrassWithWaterGround.png" id="1_2knrf"]
+[ext_resource type="Shader" uid="uid://b4eagmg8vgsb0" path="res://Shaders/TextureRandomizer.tres" id="2_jh4re"]
+
+[sub_resource type="Gradient" id="Gradient_x0efs"]
+offsets = PackedFloat32Array(0.340909, 0.579545, 0.829545)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0.219608)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k0gia"]
+frequency = 0.0461
+fractal_type = 2
+fractal_weighted_strength = 1.0
+domain_warp_type = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r1ry1"]
+width = 2048
+height = 2048
+seamless = true
+color_ramp = SubResource("Gradient_x0efs")
+noise = SubResource("FastNoiseLite_k0gia")
+
+[sub_resource type="Gradient" id="Gradient_d14ay"]
+offsets = PackedFloat32Array(0.353659, 0.670732, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1lddq"]
+noise_type = 3
+frequency = 0.001
+fractal_gain = 2.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i12t6"]
+width = 2048
+height = 2048
+seamless = true
+color_ramp = SubResource("Gradient_d14ay")
+noise = SubResource("FastNoiseLite_1lddq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_psccg"]
+render_priority = 1
+shader = ExtResource("2_jh4re")
+shader_parameter/Texture2DParameter = SubResource("NoiseTexture2D_i12t6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixaq1"]
+render_priority = 1
+next_pass = SubResource("ShaderMaterial_psccg")
+transparency = 1
+albedo_color = Color(0, 0.533333, 0, 0.290196)
+albedo_texture = SubResource("NoiseTexture2D_r1ry1")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eovbb"]
+render_priority = 1
+next_pass = SubResource("StandardMaterial3D_ixaq1")
+albedo_color = Color(0, 0.407843, 0, 1)
+albedo_texture = ExtResource("1_2knrf")
+uv1_scale = Vector3(100, 100, 100)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_je3sh"]
+material = SubResource("StandardMaterial3D_eovbb")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkr81"]
-size = Vector3(100, 0, 100)
+size = Vector3(25, 0, 25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5cvr"]
-albedo_color = Color(0.203922, 0.447059, 0, 1)
-albedo_texture = ExtResource("1_xeo4g")
-metallic_specular = 0.0
-subsurf_scatter_strength = 1.0
-refraction_scale = 1.0
-refraction_texture = ExtResource("1_xeo4g")
-refraction_texture_channel = 1
-detail_mask = ExtResource("1_xeo4g")
-uv1_scale = Vector3(20, 20, 20)
-texture_filter = 0
-grow_amount = -3.516
+[node name="Ground" type="StaticBody3D"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_wie65"]
-material = SubResource("StandardMaterial3D_x5cvr")
-size = Vector2(100, 100)
-
-[node name="GroundTemplate" type="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(150, 0, 0, 0, 2, 0, 0, 0, 150, 0, 0, 0)
+mesh = SubResource("PlaneMesh_je3sh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_qkr81")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_wie65")
