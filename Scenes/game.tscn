@@ -29,6 +29,7 @@ script = ExtResource("1_w3sbi")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_babkq")
+volume_db = -5.0
 autoplay = true
 
 [node name="World" type="WorldEnvironment" parent="."]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://34cbxepsfihl"]
+[gd_scene load_steps=5 format=3 uid="uid://34cbxepsfihl"]
 
 [ext_resource type="Script" path="res://Scripts/CollectableScript.gd" id="1_g5dld"]
 [ext_resource type="PackedScene" uid="uid://db3fkm0jrd8ax" path="res://Models/Padlock.gltf" id="2_ghtl6"]
+[ext_resource type="AudioStream" uid="uid://ygskf6pch4rr" path="res://SFX/PadLockSE.mp3" id="3_llb3i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vmvfk"]
 size = Vector3(0.739288, 0.963409, 0.238831)
@@ -9,7 +10,7 @@ size = Vector3(0.739288, 0.963409, 0.238831)
 [node name="Lock" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_g5dld")
-TYPE = 1
+type = 1
 
 [node name="Model" parent="." instance=ExtResource("2_ghtl6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
@@ -18,4 +19,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.1, 0.01)
 shape = SubResource("BoxShape3D_vmvfk")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_llb3i")
+volume_db = 80.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
